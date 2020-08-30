@@ -52,7 +52,7 @@ npm run deploy
 
 **Automatic Deployment**
 
-Step 1: Create a new personal access code to allow Github actions to deploy on our behalf
+**Step 1**: Create a new personal access code to allow Github actions to deploy on our behalf
 * Go to personal profile setting and on the left navbar, click on _Developer settings_
 * Again on the left navbar, click on _Personal access tokens_
 * On the top, click on _Generate new token_
@@ -61,11 +61,11 @@ Step 1: Create a new personal access code to allow Github actions to deploy on o
 
 ![create personl access token](assets/images/create-personal-access-token.png)
 
-Step 2: Add access token to project’s environment variables
+**Step 2**: Add access token to project’s environment variables
 * Go to project setting and on the left navbar, click on _Secrets_
 * On the top, click on _New secret_
 * Under _Name_, enter ‘DEPLOY_ACCESS_TOKEN’ and under _Value_, key in the access token you have saved earlier
 
 ![add personal access token as secret](assets/images/add-personal-access-token-as-secret.png)
 
-Step 3: You are done! You can now commit and see your changes applied on your Github page
+**Step 3**: You are done! :tada: You can now commit and see your changes applied on your Github page
