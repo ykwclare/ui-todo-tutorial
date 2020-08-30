@@ -8,8 +8,8 @@ import { TodoList } from "./components/TodoList";
 const App = () => {
   return (
     <div className="app">
+      <Header />
       <TodoContextProvider>
-        <Header />
         <TodoInput />
         <TodoList />
       </TodoContextProvider>
