@@ -1,9 +1,9 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { TodoContext } from "../context/TodoContextProvider";
 
 //TODO:
 export const TodoList = () => {
   const { state } = useContext(TodoContext);
   console.log(state);
-  return state.todos.join();
+  return <div data-cy="todo-list">{state.todos.join()}</div>;
 };

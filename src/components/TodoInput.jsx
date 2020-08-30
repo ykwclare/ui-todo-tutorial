@@ -17,6 +17,7 @@ export const TodoInput = () => {
         placeholder="Add a TODO"
         size="large"
         className="todo-input__input"
+        data-cy="todo-input__input"
       />
       <Button
         type="primary"
@@ -26,6 +27,7 @@ export const TodoInput = () => {
           setInputValue("");
         }}
         className="todo-input__button"
+        data-cy="todo-input__button"
       >
         Add
       </Button>
