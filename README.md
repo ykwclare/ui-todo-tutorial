@@ -4,13 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Development
 
-To install dependencies, do
+### Install dependencies
 
 ```
 yarn
 ```
 
-To run app in development mode, do
+### Run app in development mode
 
 ```
 yarn start
@@ -20,7 +20,7 @@ yarn start
 - The page will reload if you make edits.<br />
 - You will also see any lint errors in the console.
 
-To run tests, do
+### Run unit tests
 
 ```
 yarn test
