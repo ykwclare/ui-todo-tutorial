@@ -59,13 +59,13 @@ Step 1: Create a new personal access code to allow Github actions to deploy on o
 * Under _Note_, fill it up with the purpose of the token (e.g. 'deploy-access') and under _Select scopes_, tick the checkbox _public_repo_ and finally click _Generate token_
 * Save the access token somewhere
 
-![create personl access token]("./assets/images/create-personal-access-token.png")
+![create personl access token](assets/images/create-personal-access-token.png)
 
 Step 2: Add access token to project’s environment variables
 * Go to project setting and on the left navbar, click on _Secrets_
 * On the top, click on _New secret_
 * Under _Name_, enter ‘DEPLOY_ACCESS_TOKEN’ and under _Value_, key in the access token you have saved earlier
 
-![add personal access token as secret]("./assets/images/add-personal-access-token-as-secret.png")
+![add personal access token as secret](assets/images/add-personal-access-token-as-secret.png)
 
 Step 3: You are done! You can now commit and see your changes applied on your Github page
