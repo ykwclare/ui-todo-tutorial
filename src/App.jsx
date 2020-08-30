@@ -7,7 +7,7 @@ import { TodoList } from "./components/TodoList";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       <TodoContextProvider>
         <Header />
         <TodoInput />

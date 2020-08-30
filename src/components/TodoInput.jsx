@@ -3,7 +3,6 @@ import { Input, Button } from "antd";
 import { addTodo } from "../context/todo.actions";
 import { TodoContext } from "../context/TodoContextProvider";
 import { useContext } from "react";
-const { TextArea } = Input;
 
 export const TodoInput = () => {
   const [inputValue, setInputValue] = useState("");
@@ -11,21 +10,25 @@ export const TodoInput = () => {
   const dispatchAddTodo = (todo) => dispatch(addTodo(todo));
 
   return (
-    <>
-      <TextArea
+    <div className="todo-input">
+      <Input
         value={inputValue}
         onChange={({ target: { value } }) => setInputValue(value)}
         placeholder="Add a TODO"
-        autoSize={{ minRows: 1, maxRows: 3 }}
+        size="large"
+        className="todo-input__input"
       />
       <Button
         type="primary"
         shape="round"
-        size={2}
-        onClick={() => dispatchAddTodo(inputValue)}
+        onClick={() => {
+          dispatchAddTodo(inputValue);
+          setInputValue("");
+        }}
+        className="todo-input__button"
       >
         Add
       </Button>
-    </>
+    </div>
   );
 };
