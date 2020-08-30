@@ -1,13 +1,20 @@
 import React from "react";
 import "./App.css";
 import { TodoContextProvider } from "./context/TodoContextProvider";
+import { Header } from "./components/Header";
+import { TodoInput } from "./components/TodoInput";
+import { TodoList } from "./components/TodoList";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <TodoContextProvider>Hello</TodoContextProvider>
+      <TodoContextProvider>
+        <Header />
+        <TodoInput />
+        <TodoList />
+      </TodoContextProvider>
     </div>
   );
-}
+};
 
 export default App;
