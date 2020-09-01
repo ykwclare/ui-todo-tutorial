@@ -64,6 +64,7 @@ export const TodoList = () => {
     <div className="todo-list" data-cy="todo-list">
       {Object.entries(state.todos).map(([id, todo]) => (
         <TodoTask
+          key={id}
           description={todo.description}
           update={dispatchUpdateTodo}
           delete={dispatchDeleteTodo}
