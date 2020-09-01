@@ -4,7 +4,7 @@ import { TodoContext } from "../context/TodoContextProvider";
 import { updateTodo, deleteTodo } from "../context/todo.actions";
 
 const TodoTask = (props) => {
-  const [updatedValue, setupdatedValue] = useState(props.todo);
+  const [updatedValue, setUpdatedValue] = useState(props.todo);
   const [isUpdating, setUpdating] = useState(false);
 
   const onUpdate = () => {
@@ -17,11 +17,15 @@ const TodoTask = (props) => {
 
   return (
     <div className="todo-task">
-      {!isUpdating && <div className="todo-task__name">{props.todo}</div>}
+      {!isUpdating && (
+        <div className="todo-task__name" data-cy="todo-task__name">
+          {props.todo}
+        </div>
+      )}
       {isUpdating && (
         <Input
           value={updatedValue}
-          onChange={({ target: { value } }) => setupdatedValue(value)}
+          onChange={({ target: { value } }) => setUpdatedValue(value)}
           placeholder="Update a TODO"
           size="large"
           className="todo-task__input"

@@ -7,7 +7,9 @@ export const todoReducer = (state, action) => {
       return { ...state, todos: [...state.todos, data] };
     case UPDATE_TODO:
       const updatedTodos = [...state.todos];
-      updatedTodos[data.index] = data.todo;
+      if (updatedTodos.length >= data.index + 1) {
+        updatedTodos[data.index] = data.todo;
+      }
       return { ...state, todos: updatedTodos };
     case DELETE_TODO:
       const arr = [...state.todos];
