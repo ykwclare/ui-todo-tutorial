@@ -4,7 +4,7 @@ import { TodoContext } from "../context/TodoContextProvider";
 import { updateTodo, deleteTodo } from "../context/todo.actions";
 
 const TodoTask = (props) => {
-  const [updatedValue, setUpdatedValue] = useState(props.todo);
+  const [updatedValue, setUpdatedValue] = useState(props.description);
   const [isUpdating, setUpdating] = useState(false);
 
   const onUpdate = () => {
@@ -19,7 +19,7 @@ const TodoTask = (props) => {
     <div className="todo-task">
       {!isUpdating && (
         <div className="todo-task__name" data-cy="todo-task__name">
-          {props.todo}
+          {props.description}
         </div>
       )}
       {isUpdating && (
@@ -57,17 +57,17 @@ const TodoTask = (props) => {
 
 export const TodoList = () => {
   const { state, dispatch } = useContext(TodoContext);
-  const dispatchUpdateTodo = (todo, index) => dispatch(updateTodo(todo, index));
-  const dispatchDeleteTodo = (todo) => dispatch(deleteTodo(todo));
+  const dispatchUpdateTodo = (description, id) => dispatch(updateTodo(id, description));
+  const dispatchDeleteTodo = (id) => dispatch(deleteTodo(id));
 
   return (
     <div className="todo-list" data-cy="todo-list">
-      {state.todos.map((todo, index) => (
+      {Object.entries(state.todos).map(([id, todo]) => (
         <TodoTask
-          todo={todo}
+          description={todo.description}
           update={dispatchUpdateTodo}
           delete={dispatchDeleteTodo}
-          id={index}
+          id={id}
         />
       ))}
     </div>

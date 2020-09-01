@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from "react";
 import { todoReducer } from "./todo.reducer";
 
-const initialState = { todos: [] };
+const initialState = { todos: {} };
 export const TodoContext = createContext(initialState);
 
 export const TodoContextProvider = ({ children }) => {
