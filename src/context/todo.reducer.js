@@ -10,10 +10,10 @@ export const todoReducer = (state, action) => {
       };
       return { ...state, todos };
     case UPDATE_TODO:
-      const updatedTodos = {
-        ...state.todos,
-        [data.id]: { description: data.description },
-      };
+      const updatedTodos = { ...state.todos };
+      if (updatedTodos[data.id]) {
+        updatedTodos[data.id].description = data.description;
+      }
       return { ...state, todos: updatedTodos };
 
     case DELETE_TODO:
