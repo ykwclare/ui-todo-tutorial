@@ -10,18 +10,24 @@ const {
 describe("todo.actions", () => {
   describe("addTodo", () => {
     it("should dispatch action with type ADD_TODO", () => {
-      expect(addTodo("new todo!")).toEqual({
+      expect(addTodo(0, "new todo!")).toEqual({
         type: ADD_TODO,
-        data: "new todo!",
+        data: {
+          id: 0,
+          description: "new todo!"
+        },
       });
     });
   });
 
   describe("updateTodo", () => {
     it("should dispatch action with type UPDATE_TODO", () => {
-      expect(updateTodo("new todo!", 0)).toEqual({
+      expect(updateTodo(0, "new todo!")).toEqual({
         type: UPDATE_TODO,
-        data: { todo: "new todo!", index: 0 },
+        data: {
+          id: 0,
+          description: "new todo!",
+        },
       });
     });
   });
