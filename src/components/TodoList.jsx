@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Input, Button } from "antd";
 import { TodoContext } from "../context/TodoContextProvider";
 import { updateTodo, deleteTodo } from "../context/todo.actions";
+// import { firebaseApi } from "../services/firebase-api";
 
 const TodoTask = (props) => {
   const [updatedValue, setUpdatedValue] = useState(props.description);
@@ -9,7 +10,7 @@ const TodoTask = (props) => {
 
   const onUpdate = () => {
     if (isUpdating) {
-      props.update(updatedValue, props.id);
+      props.update(props.id, updatedValue);
     }
 
     setUpdating(!isUpdating);
@@ -57,8 +58,15 @@ const TodoTask = (props) => {
 
 export const TodoList = () => {
   const { state, dispatch } = useContext(TodoContext);
-  const dispatchUpdateTodo = (description, id) => dispatch(updateTodo(id, description));
-  const dispatchDeleteTodo = (id) => dispatch(deleteTodo(id));
+  const handleUpdateTodo = (id, description) => {
+    // firebaseApi.updateTodo(id, description);
+    dispatch(updateTodo(id, description));
+  }
+
+  const handleDeleteTodo = (id, description) => {
+    // firebaseApi.deleteTodo(id);
+    dispatch(deleteTodo(id));
+  }
 
   return (
     <div className="todo-list" data-cy="todo-list">
@@ -66,8 +74,8 @@ export const TodoList = () => {
         <TodoTask
           key={id}
           description={todo.description}
-          update={dispatchUpdateTodo}
-          delete={dispatchDeleteTodo}
+          update={handleUpdateTodo}
+          delete={handleDeleteTodo}
           id={id}
         />
       ))}
