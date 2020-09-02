@@ -1,15 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Input, Button } from "antd";
 import { TodoContext } from "../context/TodoContextProvider";
-import { updateTodo, deleteTodo } from "../context/todo.actions";
+import { deleteTodo, setTodos, updateTodo } from "../context/todo.actions";
+// import { firebaseApi } from "../services/firebase-api";
 
 const TodoTask = (props) => {
-  const [updatedValue, setUpdatedValue] = useState(props.todo);
+  const [updatedValue, setUpdatedValue] = useState(props.description);
   const [isUpdating, setUpdating] = useState(false);
 
   const onUpdate = () => {
     if (isUpdating) {
-      props.update(updatedValue, props.id);
+      props.update(props.id, updatedValue);
     }
 
     setUpdating(!isUpdating);
@@ -19,7 +20,7 @@ const TodoTask = (props) => {
     <div className="todo-task">
       {!isUpdating && (
         <div className="todo-task__name" data-cy="todo-task__name">
-          {props.todo}
+          {props.description}
         </div>
       )}
       {isUpdating && (
@@ -57,17 +58,35 @@ const TodoTask = (props) => {
 
 export const TodoList = () => {
   const { state, dispatch } = useContext(TodoContext);
-  const dispatchUpdateTodo = (todo, index) => dispatch(updateTodo(todo, index));
-  const dispatchDeleteTodo = (todo) => dispatch(deleteTodo(todo));
+
+  // useEffect(() => {
+  //   const fetchTodos = async () => {
+  //     const todos = await firebaseApi.fetchTodos();
+  //     dispatch(setTodos(todos));
+  //   }
+
+  //   fetchTodos();
+  // }, [dispatch]);
+
+  const handleUpdateTodo = async (id, description) => {
+    // await firebaseApi.updateTodo(id, description);
+    dispatch(updateTodo(id, description));
+  }
+
+  const handleDeleteTodo = async (id) => {
+    // await firebaseApi.deleteTodo(id);
+    dispatch(deleteTodo(id));
+  }
 
   return (
     <div className="todo-list" data-cy="todo-list">
-      {state.todos.map((todo, index) => (
+      {Object.entries(state.todos).map(([id, todo]) => (
         <TodoTask
-          todo={todo}
-          update={dispatchUpdateTodo}
-          delete={dispatchDeleteTodo}
-          id={index}
+          key={id}
+          description={todo.description}
+          update={handleUpdateTodo}
+          delete={handleDeleteTodo}
+          id={id}
         />
       ))}
     </div>

@@ -1,13 +1,21 @@
-import React, { useState } from "react";
-import { Input, Button } from "antd";
+import { Button, Input } from "antd";
+import React, { useContext, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { addTodo } from "../context/todo.actions";
 import { TodoContext } from "../context/TodoContextProvider";
-import { useContext } from "react";
+// import { firebaseApi } from "../services/firebase-api";
 
 export const TodoInput = () => {
   const [inputValue, setInputValue] = useState("");
   const { dispatch } = useContext(TodoContext);
-  const dispatchAddTodo = (todo) => dispatch(addTodo(todo));
+
+  const handleAddClick = async () => {
+    const id = uuidv4();
+
+    // await firebaseApi.addTodo(id, inputValue);
+    dispatch(addTodo(id, inputValue));
+    setInputValue("");
+  }
 
   return (
     <div className="todo-input">
@@ -22,10 +30,7 @@ export const TodoInput = () => {
       <Button
         type="primary"
         shape="round"
-        onClick={() => {
-          dispatchAddTodo(inputValue);
-          setInputValue("");
-        }}
+        onClick={handleAddClick}
         className="todo-input__button"
         data-cy="todo-input__button"
       >

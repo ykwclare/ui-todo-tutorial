@@ -1,20 +1,27 @@
-import { ADD_TODO, UPDATE_TODO, DELETE_TODO } from "./todo.actions";
+import { SET_TODOS, ADD_TODO, UPDATE_TODO, DELETE_TODO } from "./todo.actions";
 
 export const todoReducer = (state, action) => {
   const { type, data } = action;
   switch (type) {
+    case SET_TODOS:
+      return { ...state, todos: data };
     case ADD_TODO:
-      return { ...state, todos: [...state.todos, data] };
+      const todos = {
+        ...state.todos,
+        [data.id]: { description: data.description },
+      };
+      return { ...state, todos };
     case UPDATE_TODO:
-      const updatedTodos = [...state.todos];
-      if (updatedTodos.length >= data.index + 1) {
-        updatedTodos[data.index] = data.todo;
+      const updatedTodos = { ...state.todos };
+      if (updatedTodos[data.id]) {
+        updatedTodos[data.id].description = data.description;
       }
       return { ...state, todos: updatedTodos };
+
     case DELETE_TODO:
-      const arr = [...state.todos];
-      arr.splice(data, 1);
-      return { ...state, todos: arr };
+      const todosAfterDelete = { ...state.todos };
+      delete todosAfterDelete[data];
+      return { ...state, todos: todosAfterDelete };
     default:
       return state;
   }
