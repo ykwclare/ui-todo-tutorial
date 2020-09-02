@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Input, Button } from "antd";
 import { TodoContext } from "../context/TodoContextProvider";
-import { updateTodo, deleteTodo } from "../context/todo.actions";
+import { deleteTodo, setTodos, updateTodo } from "../context/todo.actions";
 // import { firebaseApi } from "../services/firebase-api";
 
 const TodoTask = (props) => {
@@ -58,6 +58,16 @@ const TodoTask = (props) => {
 
 export const TodoList = () => {
   const { state, dispatch } = useContext(TodoContext);
+
+  // useEffect(() => {
+  //   const fetchTodos = async () => {
+  //     const todos = await firebaseApi.fetchTodos();
+  //     dispatch(setTodos(todos));
+  //   }
+
+  //   fetchTodos();
+  // }, [dispatch]);
+
   const handleUpdateTodo = async (id, description) => {
     // await firebaseApi.updateTodo(id, description);
     dispatch(updateTodo(id, description));
