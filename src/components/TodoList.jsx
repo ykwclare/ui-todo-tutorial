@@ -58,13 +58,13 @@ const TodoTask = (props) => {
 
 export const TodoList = () => {
   const { state, dispatch } = useContext(TodoContext);
-  const handleUpdateTodo = (id, description) => {
-    // firebaseApi.updateTodo(id, description);
+  const handleUpdateTodo = async (id, description) => {
+    // await firebaseApi.updateTodo(id, description);
     dispatch(updateTodo(id, description));
   }
 
-  const handleDeleteTodo = (id, description) => {
-    // firebaseApi.deleteTodo(id);
+  const handleDeleteTodo = async (id) => {
+    // await firebaseApi.deleteTodo(id);
     dispatch(deleteTodo(id));
   }
 
