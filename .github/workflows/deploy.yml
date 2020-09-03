@@ -46,7 +46,7 @@ jobs:
           path: cypress/screenshots
 
       - name: Create cypress videos artifact
-      - uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v1
         if: always()
         with:
           name: cypress-videos
