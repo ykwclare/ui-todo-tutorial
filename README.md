@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Table of contents
+
+1. [Before we start](#before-we-start)
+2. [Setting up](#setting-up)
+3. [Development](#development)
+4. [Deployment](#deployment)
+
 ## Before we start
 
 Make sure you have the following accounts:
