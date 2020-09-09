@@ -1,7 +1,7 @@
 import firebase from "firebase";
 // Required for side-effects
 import "firebase/firestore";
-import { config } from "./app-config";
+import { config } from "./appConfig";
 
 firebase.initializeApp(config.firebase);
 

@@ -1,4 +1,4 @@
-import { fireStore } from "../config/firebase-config";
+import { fireStore } from "../config/firebaseConfig";
 
 const COLLECTION_NAME = "todo-list";
 
