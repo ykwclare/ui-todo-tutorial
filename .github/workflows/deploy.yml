@@ -26,32 +26,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Include other CI steps here
-      - name: Run unit test
-        run: npm run test
+      # TODO: Add a stage for running unit tests
 
-      - name: Run end-to-end cypress test
-        uses: cypress-io/github-action@v1
-        with:
-          start: npm run start
-          browser: chrome
-        env:
-          # pass GitHub token to allow accurately detecting a build vs a re-run build
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # TODO: Add a stage for running cypress tests
 
-      - name: Create cypress screenshots artifact
-        uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-
-      - name: Create cypress videos artifact
-        uses: actions/upload-artifact@v1
-        if: always()
-        with:
-          name: cypress-videos
-          path: cypress/videos
+      # TODO: Add a stage to generate cypress videos and screenshots as artifacts
 
       - name: Deploy
         run: |
