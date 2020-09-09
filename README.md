@@ -7,9 +7,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 1. [Before we start](#before-we-start)
 2. [Setting up](#setting-up)
 3. [Development](#development)
-4. [Deployment](#deployment)
+4. [Testing](#testing)
+5. [Deployment](#deployment)
 
-## Before we start
+## 1. Prerequisites
 
 Make sure you have the following accounts:
 
@@ -22,35 +23,51 @@ Make sure you have the following installed in your computer:
 - NPM ([instructions here](https://www.npmjs.com/get-npm))
 - Your preferred IDE/editor (if not, you may try [VSCode](https://code.visualstudio.com/) out)
 
-## Setting up
+## 2. Setting up
 
 1. Fork this repo
 2. Clone your forked repo to your preferred directory in your computer
 3. Open the repo in your IDE/editor
 
-## Development
+## 3. Development
 
-### Install dependencies
+TODO: blah blah some intro here
 
-```
-npm ci
-```
+Let's first make sure our setup was correct. Follow the steps below to run your app in development mode.
 
-### Run app in development mode
+1. Install dependencies
+   ```
+   npm ci
+   ```
+2. Run app in development mode
+   ```
+   npm run start
+   ```
+   - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+   - The page will reload if you make edits.<br />
+   - You will also see any lint errors in the console.
 
-```
-npm run start
-```
+### Basic Challenge
 
-- Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-- The page will reload if you make edits.<br />
-- You will also see any lint errors in the console.
+TODO:
 
-### Run unit tests
+### Advanced Challenge
+
+TODO:
+
+## 4. Testing
+
+TODO: blah blah some intro here
+
+### Unit tests
 
 ```
 npm run test
 ```
+
+#### Challenge
+
+TODO:
 
 ### Run e2e tests
 
@@ -61,9 +78,13 @@ npm run cypress:open
 
 An interactive window will appear. Click on the test you want to run.
 
-## Deployment
+#### Challenge
 
-test test
+TODO:
+
+## 5. Deployment
+
+TODO: blah blah do we need intro here if not can delete
 
 ### Github Pages
 
