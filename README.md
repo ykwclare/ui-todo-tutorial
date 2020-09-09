@@ -123,5 +123,5 @@ npm run deploy
 ### Challenges
 
 - Add a stage for running unit tests
-- Add a stage for running cypress tests
+- Add a stage for running cypress tests (hint: you can use cypress-io/github-action@v1)
 - (Advanced) Add a stage to generate cypress videos and screenshots as artifacts
