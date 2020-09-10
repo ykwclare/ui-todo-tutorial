@@ -8,7 +8,7 @@ export const TodoInput = () => {
   const [inputValue, setInputValue] = useState("");
   const { dispatch } = useContext(TodoContext);
 
-  const handleAddClick = async () => {
+  const handleAddClick = () => {
     const id = uuidv4();
 
     dispatch(addTodo(id, inputValue));

@@ -33,7 +33,7 @@ const TodoTask = (props) => {
 export const TodoList = () => {
   const { state } = useContext(TodoContext);
 
-  const handleDeleteTodo = async (id) => {
+  const handleDeleteTodo = (id) => {
     // TODO: fill in
   };
 
