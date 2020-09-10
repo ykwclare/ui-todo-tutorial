@@ -33,6 +33,15 @@ const TodoTask = (props) => {
 export const TodoList = () => {
   const { state } = useContext(TodoContext);
 
+  // useEffect(() => {
+  //   const fetchTodos = async () => {
+  //     const todos = await firebaseApi.fetchTodos();
+  //     dispatch(setTodos(todos));
+  //   }
+
+  //   fetchTodos();
+  // }, [dispatch]);
+
   const handleDeleteTodo = (id) => {
     // TODO: fill in
   };
