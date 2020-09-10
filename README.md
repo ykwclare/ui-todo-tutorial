@@ -53,9 +53,36 @@ Let's first make sure our setup was correct. Follow the steps below to run your 
   - On click of "update" after editing the task, how can we update the context?
   - How can we prevent user from deleting a todo task while updating?
 
-## 4. Backend Development
+## 4. Serverless "Backend" Development
 
-TODO:
+At this point, you should have a functioning app which can add, delete, and (hopefully) update todo list items.
+
+But what happens when we refresh the page? Or when we restart the local server? The todo items are gone! To save our todo items, we are going to attach our app to a "backend".
+
+1. Set up Firebase Cloud Firestore
+    1. Go to [Firebase Console](https://console.firebase.google.com/) > Add a project
+    2. Create a Cloud Firestore database in test mode
+    3. Start a collection with ID `todo-list`
+    4. Add the first document
+        ```
+        Document ID: Auto-ID
+        Field: description
+        Value: <your todo item description>
+        ```
+    5. Add more todo items as desired
+2. Link app to firebase
+    1. Go to Project Settings > Add a web app
+    2. Copy the config from the **Firebase SDK Snippet** into the **.env** file at the root of this project
+    3. Uncomment the import in `src/index.js`
+        ```
+        import './config/firebaseConfig';
+        ```
+3. To retrieve your todo items from Firestore, uncomment the `useEffect` code in `src/components/TodoList.jsx`. Be sure to add your imports!
+4. Done! Whenever you refresh your page now, the app will pull the latest todos from Firestore.
+
+### Challenges
+
+- Add API calls for `add`, `delete`, and `update` methods
 
 ## 5. Testing
 
