@@ -83,6 +83,9 @@ But what happens when we refresh the page? Or when we restart the local server? 
 ### Challenges
 
 - Add API calls for `add`, `delete`, and `update` methods
+  - When should we call the methods?
+  - Should we wait for the calls to complete?
+  - What happens if there is an error?
 
 ## 5. Testing
 
