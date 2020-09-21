@@ -60,23 +60,23 @@ At this point, you should have a functioning app which can add, delete, and (hop
 But what happens when we refresh the page? Or when we restart the local server? The todo items are gone! To save our todo items, we are going to attach our app to a "backend".
 
 1. Set up Firebase Cloud Firestore
-    1. Go to [Firebase Console](https://console.firebase.google.com/) > Add a project
-    2. Create a Cloud Firestore database in test mode
-    3. Start a collection with ID `todo-list`
-    4. Add the first document
-        ```
-        Document ID: Auto-ID
-        Field: description
-        Value: <your todo item description>
-        ```
-    5. Add more todo items as desired
+   1. Go to [Firebase Console](https://console.firebase.google.com/) > Add a project
+   2. Create a Cloud Firestore database in test mode
+   3. Start a collection with ID `todo-list`
+   4. Add the first document
+      ```
+      Document ID: Auto-ID
+      Field: description
+      Value: <your todo item description>
+      ```
+   5. Add more todo items as desired
 2. Link app to firebase
-    1. Go to Project Settings > Add a web app
-    2. Copy the config from the **Firebase SDK Snippet** into the **.env** file at the root of this project
-    3. Uncomment the import in `src/index.js`
-        ```
-        import './config/firebaseConfig';
-        ```
+   1. Go to Project Settings > Add a web app
+   2. Copy the config from the **Firebase SDK Snippet** into the **.env** file at the root of this project
+   3. Uncomment the import in `src/index.js`
+      ```
+      import './config/firebaseConfig';
+      ```
 3. To retrieve your todo items from Firestore, uncomment the `useEffect` code in `src/components/TodoList.jsx`. Be sure to add your imports!
 4. Done! Whenever you refresh your page now, the app will pull the latest todos from Firestore.
 
@@ -89,9 +89,11 @@ But what happens when we refresh the page? Or when we restart the local server? 
 
 ## 5. Testing
 
-TODO: blah blah some intro here
+Congrats, we now have a working todo application! But wait... is it really working? Let's add tests to make sure it's functioning as expected!
 
 ### Unit tests
+
+Unit tests are used to validate that a component or unit of our todo application, such as action and reducer, is working as expected.
 
 ```
 npm run test
@@ -100,8 +102,12 @@ npm run test
 #### Challenges
 
 - Write unit tests for the utility files that you just added for delete and update
+  - What kind of scenarios should we test for?
+  - What result do we expect from the tests?
 
 ### E2E tests
+
+End-to-end tests simulate scenarios from a real user's perspective and validate if the app is working as expected from start to end. Theses tests can highlight missing/ incorrect functionality and UI errors.
 
 ```
 npm run start           # if you have not already done so
@@ -113,7 +119,10 @@ An interactive window will appear. Click on the test you want to run.
 #### Challenges
 
 - Write e2e tests for the utility files that you just added for delete and update
+  - What kind of scenarios should we test for?
+  - What result do we expect from the tests?
 - Clear all todo tasks before running the tests
+  - Can we do this via cypress?
 - (Advanced) Create a test db for your tests so you won't interfere with production data
 
 ## 6. Deployment
@@ -144,7 +153,7 @@ npm run deploy
 
 - Go to project setting and on the left navbar, click on _Secrets_
 - On the top, click on _New secret_
-- Under _Name_, enter ‘DEPLOY_ACCESS_TOKEN’ and under _Value_, key in the access token you have saved earlier
+- Under _Name_, enter ‘DEPLOY*ACCESS_TOKEN’ and under \_Value*, key in the access token you have saved earlier
 
 ![add personal access token as secret](assets/images/add-personal-access-token-as-secret.png)
 
